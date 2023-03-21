@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', TaskController::class);
+Route::get('/', TaskController::class)->name('home');

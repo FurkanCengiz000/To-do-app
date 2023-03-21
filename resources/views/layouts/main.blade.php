@@ -13,7 +13,7 @@
 
     @include('partials.header')
 
-    <main class="container-fluid mt-3 px-5">
+    <main style="height: 100vh" class="container-fluid mt-3 px-5">
         @yield('content')
     </main>
 
