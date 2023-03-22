@@ -1,22 +1,27 @@
 @extends('layouts.main')
 
 @section('content')
-    @include('tasks._inputs')
+    @include('partials.tasks._inputs')
 
     <div class="d-flex justify-content-center">
         <div class="w-75">
-            <table style="margin-bottom: 75px" class="table table-striped table-hover">
+            <table style="@unless(!count($tasks)) margin-bottom: 75px @endunless" class="table table-striped table-hover">
                 <thead class="table-dark">
                     <tr>
-                        <th class="text-center">Completed</th>
-                        <th class="text-center">Task</th>
+                        <th><span class="ms-3">Completed</span></th>
+                        <th>Task</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @include('tasks._tasks')
+                    @include('partials.tasks._tasks')
                 </tbody>
             </table>
+            @unless(count($tasks))
+                <div class="alert alert-danger" role="alert">
+                    There is no task.
+                </div>
+            @endunless
         </div>
     </div>
 @endsection

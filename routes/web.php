@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', TaskController::class)->name('home');
+Route::get('/', [TaskController::class, 'index'])->name('home');
+Route::post('/', [TaskController::class, 'store'])->name('store');
+Route::delete('/{task:id}', [TaskController::class, 'destroy'])->name('destroy');
