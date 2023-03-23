@@ -1,7 +1,7 @@
 @foreach ($tasks as $task)
     <tr>
         <td>
-            <div class="">
+            <div>
                 <input class="form-check-input ms-3" type="checkbox" id="defaultCheck1"
                     @if ($task->is_completed == 1) checked @endif>
             </div>
@@ -22,7 +22,7 @@
                         <i class="fa fa-trash" style="color: #ffffff;"></i>
                     </button>
                 </form>
-                <a class="btn-sm btn-warning border-0" href="#">
+                <a class="btn-sm btn-warning border-0" href="{{ route('edit', $task->id) }}">
                     <i class="fa-solid fa-pen-to-square" style="color: #212529;"></i>
                 </a>
             </div>

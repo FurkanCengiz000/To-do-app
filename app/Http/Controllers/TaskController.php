@@ -27,13 +27,22 @@ class TaskController extends Controller
 
     }
 
-    public function edit()
+    public function edit(Task $task)
     {
-
+        return view('task_edit', compact('task'));
     }
 
-    public function update()
+    public function update(Request $request, Task $task)
     {
+        $validated = $request->validate([
+            'task' => 'required|string'
+        ]);
+
+        Task::where('id', $task->id)
+        ->update(['task' => $validated['task']]);
+        return to_route('home');
+
+
 
     }
 

@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [TaskController::class, 'index'])->name('home');
 Route::post('/', [TaskController::class, 'store'])->name('store');
 Route::delete('/{task:id}', [TaskController::class, 'destroy'])->name('destroy');
+Route::get('/edit/{task}', [TaskController::class, 'edit'])->name('edit');
+Route::put('/edit/{task}', [TaskController::class, 'update'])->name('update');
