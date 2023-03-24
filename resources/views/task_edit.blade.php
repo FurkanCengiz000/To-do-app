@@ -8,8 +8,9 @@
                 @error('task')
                     @include('partials._alert')
                 @enderror
-                <x-input_form action="{{ route('update', $task->id) }}" method="PUT" btn_name="Update"
-                    value="{{ old('task', $task->task) }}" />
+                <x-form action="{{ route('update', $task->id) }}" method="PUT">
+                    <x-form.input btn_name="Update" value="{{ old('task', $task->task) }}" />
+                </x-form>
             </div>
         </div>
     @endsection

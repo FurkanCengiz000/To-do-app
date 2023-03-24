@@ -16,7 +16,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'task' => 'required|string'
+            'task' => 'required|string|max:90'
         ]);
 
         Task::create([
@@ -35,7 +35,7 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $validated = $request->validate([
-            'task' => 'required|string'
+            'task' => 'required|string|max:90'
         ]);
 
         Task::where('id', $task->id)
