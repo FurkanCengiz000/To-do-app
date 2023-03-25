@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskRequest;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -13,18 +14,10 @@ class TaskController extends Controller
         return view('tasks', compact('tasks'));
     }
 
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
-        $validated = $request->validate([
-            'task' => 'required|string|max:90'
-        ]);
-
-        Task::create([
-            'task' => $validated['task']
-        ]);
-
+        Task::create($request->validated());
         return to_route('home');
-
     }
 
     public function edit(Task $task)
@@ -32,18 +25,10 @@ class TaskController extends Controller
         return view('task_edit', compact('task'));
     }
 
-    public function update(Request $request, Task $task)
+    public function update(TaskRequest $request, Task $task)
     {
-        $validated = $request->validate([
-            'task' => 'required|string|max:90'
-        ]);
-
-        Task::where('id', $task->id)
-        ->update(['task' => $validated['task']]);
+        $task->update($request->validated());
         return to_route('home');
-
-
-
     }
 
     public function destroy(Task $task)
