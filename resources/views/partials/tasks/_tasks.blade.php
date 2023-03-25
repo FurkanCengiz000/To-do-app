@@ -20,7 +20,7 @@
                         <i class="fa fa-trash text-white"></i>
                     </button>
                 </x-form>
-                <a class="btn-sm btn-warning border-0" href="{{ route('edit', $task->id) }}">
+                <a class="btn-sm btn-warning border-0" href="{{ route('edit', $task->slug) }}">
                     <i class="fa-solid fa-pen-to-square" style="color: #212529;"></i>
                 </a>
             </div>
