@@ -19,3 +19,4 @@ Route::post('/', [TaskController::class, 'store'])->name('store');
 Route::delete('/{task}', [TaskController::class, 'destroy'])->name('destroy');
 Route::get('/edit/{task:slug}', [TaskController::class, 'edit'])->name('edit');
 Route::put('/edit/{task}', [TaskController::class, 'update'])->name('update');
+Route::put('/{task}', [TaskController::class, 'checkboxUpdate'])->name('checkboxUpdate');

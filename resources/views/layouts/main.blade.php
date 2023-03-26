@@ -13,7 +13,9 @@
 
     @include('partials.header')
 
-    <main style="height: 100vh" class="container-fluid mt-3 px-5">
+    <main
+        class="container-fluid mt-3
+        @if (request()->routeIs('home') && count($tasks) > 7) vh-100 @endif px-5">
         @yield('content')
     </main>
 

@@ -31,6 +31,25 @@ class TaskController extends Controller
         return to_route('home');
     }
 
+    public function checkboxUpdate(Task $task)
+    {
+        if($task->is_completed == 0)
+        {
+            $task->update([
+                'is_completed' => 1
+            ]);
+        }
+        else
+        {
+            $task->update([
+                'is_completed' => 0
+            ]);
+        }
+        
+
+        return to_route('home');
+    }
+
     public function destroy(Task $task)
     {
         $task->delete();

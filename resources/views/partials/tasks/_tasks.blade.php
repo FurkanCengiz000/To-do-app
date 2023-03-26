@@ -1,10 +1,11 @@
 @foreach ($tasks as $task)
     <tr>
         <td>
-            <div>
-                <input class="form-check-input ms-3" type="checkbox" id="defaultCheck1"
-                    @if ($task->is_completed == 1) checked @endif>
-            </div>
+            <x-form action="{{ route('checkboxUpdate', $task->id) }}" method="PUT">
+                <button class="border-0 bg-transparent">
+                    {!! $task->checkbox($task->is_completed) !!}
+                </button>
+            </x-form>
         </td>
 
         <td>
@@ -15,13 +16,13 @@
 
         <td>
             <div class="d-flex">
-                <x-form action="{{ route('destroy', $task->id) }}" method="DELETE" style="display: inline">
+                <x-form action="{{ route('destroy', $task->id) }}" method="DELETE">
                     <button class="btn-sm btn-danger border-0 me-2" type="submit">
                         <i class="fa fa-trash text-white"></i>
                     </button>
                 </x-form>
                 <a class="btn-sm btn-warning border-0" href="{{ route('edit', $task->slug) }}">
-                    <i class="fa-solid fa-pen-to-square" style="color: #212529;"></i>
+                    <i class="fa-solid fa-pen-to-square dark"></i>
                 </a>
             </div>
         </td>

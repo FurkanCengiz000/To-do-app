@@ -5,7 +5,7 @@
 
     <div class="d-flex justify-content-center">
         <div class="w-75">
-            <table style="@if(count($tasks)) margin-bottom: 75px @endif" class="table table-striped table-hover">
+            <table class="table table-striped table-hover @if(count($tasks)) mb-75 @endif">
                 <thead class="table-dark">
                     <tr>
                         <th><span class="ms-3">Completed</span></th>

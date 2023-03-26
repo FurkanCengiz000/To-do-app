@@ -7,3 +7,20 @@ body {
 html {
     font-family: 'Kanit', sans-serif;
 }
+
+.mb-75 {
+    margin-bottom: 75px;
+}
+
+.vh-100{
+
+    height: 100vh;
+}
+
+.dark {
+    color: #212529;
+}
+
+.lobster {
+    font-family: 'Lobster', cursive;
+}
